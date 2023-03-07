@@ -35,14 +35,24 @@
 					</div>	
 
 					<div class="mb-4">
-						<label for="" class="form-label">Linguaggio</label>
+						<label for="" class="form-label">Categoria</label>
 						<select name="type_id" id="type_id" class="form-control">
-							<option value="">Seleziona linguaggio</option>
+							<option value="">Seleziona categoria</option>
 							@foreach ($types as $item)
 								<option value="{{ $item->id }}">{{ $item->name }}</option>
 							@endforeach
 						</select>
-					</div>	
+					</div>
+
+					<div class="mb-4">
+						<label for="" class="form-label">Tecnologie</label>
+						@foreach($technologies as $item)
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value={{$item->id}} name="technologies[]"> 
+								<label class="form-check-label">{{$item->name}}</label>
+							</div>
+						@endforeach
+					</div>
 
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Crea progetto</button>

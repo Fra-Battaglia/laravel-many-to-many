@@ -13,7 +13,17 @@
 			<div class="col py-5">
 				<h1 class="fw-bold">{{ $project['title'] }}</h1>
 				<p>{{ $project['content'] }}</p>
-				<div><h5 class="fw-bold d-inline">Linguaggio</h5>: {{ $project->type ? $project->type->name : 'nessun linguaggio' }}</div>
+				<div class="mb-3"><h5 class="fw-bold d-inline">Categoria</h5>: {{ $project->type ? $project->type->name : 'nessuna categoria' }}</div>
+				<div class="mb-3">
+					<h5 class="fw-bold">Tecnologie</h5>
+					<ul>
+						@forelse($project->technologies as $item)
+							<li>{{$item->name}}</li>
+						@empty
+						Nessuna Tecnologia
+						@endforelse
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
