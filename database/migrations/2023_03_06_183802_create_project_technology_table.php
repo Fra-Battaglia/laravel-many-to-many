@@ -18,11 +18,11 @@ return new class extends Migration
 
             // Project_ID Foreign
             $table->unsignedBigInteger('project_id');
-            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
 
             // Technology_ID Foreign
             $table->unsignedBigInteger('technology_id');
-            $table->foreign('technology_id')->references('id')->on('technologies');
+            $table->foreign('technology_id')->references('id')->on('technologies')->onDelete('cascade');
 
             $table->timestamps();
         });
