@@ -24,7 +24,16 @@ class StoreTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:projects|max:100',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'A title is required',
+            'name.unique' => 'Another project with this title already exists',
+            'name.max:100' => 'Title is too long',
         ];
     }
 }

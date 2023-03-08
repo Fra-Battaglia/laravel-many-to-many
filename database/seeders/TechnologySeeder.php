@@ -18,10 +18,10 @@ class TechnologySeeder extends Seeder
     {
         $technologies = ['html', 'css', 'javascript', 'vue', 'php', 'laravel'];
         foreach ($technologies as $item) {
-            $new_type = new Technology();
-            $new_type->name = $item;
-            $new_type->slug = Str::slug($new_type->name, '-');
-            $new_type->save();
+            $new_technology = new Technology();
+            $new_technology->name = $item;
+            $new_technology->slug = Str::slug($new_technology->name, '-');
+            $new_technology->save();
         }
     }
 }

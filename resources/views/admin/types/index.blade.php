@@ -5,11 +5,11 @@
 			<div class="col py-5">
 				<div class="d-flex justify-content-between mb-3">
 					<h3 class="fw-bold">LISTA CATEGORIE</h3>
-					<a href="{{ route('admin.projects.create') }}"><button class="btn btn-primary">Aggiungi Categoria</button></a>
+					<a href="{{ route('admin.types.create') }}"><button class="btn btn-primary">Aggiungi Categoria</button></a>
 				</div>
 				@if ($types->isEmpty())
 					<div class="d-flex justify-content-center">
-						<div class="alert alert-warning m-0 w-auto">Nessun progetto, <a href="{{ route('admin.projects.create') }}">clicca qui</a> per crearne uno</div>
+						<div class="alert alert-warning m-0 w-auto">Nessun progetto, <a href="{{ route('admin.types.create') }}">clicca qui</a> per crearne una</div>
 					</div>
 				@else
 					<table class="table table-striped">

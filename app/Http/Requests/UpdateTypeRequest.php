@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Type;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTypeRequest extends FormRequest
 {
@@ -24,7 +26,20 @@ class UpdateTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => [
+                'required',
+                'max:100',
+                Rule::unique(Type::class)->ignore($this->type['id'])
+            ]
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'A title is required',
+            'name.unique' => 'Another project with this title already exists',
+            'name.max:100' => 'Title is too long',
         ];
     }
 }
